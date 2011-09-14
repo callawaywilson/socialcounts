@@ -6,19 +6,24 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<%= form_tag("/shares", :method => "post") do %>
+	<div class="page">
+		<div class="header">
+		  <h1><a href="/">Share Counter</a></h1> 
+		  <div class="share">
+		  </div>
+			<div style="clear:both;"></div>
+		</div> 
 	
-	  <%= label_tag(:type, "Services:") %>
-	  <%= select_tag(:type, options_for_select(share_types, params[:type])) %>
-	  
-	  <%= label_tag(:url, "URL:") %>
-	  <%= text_field_tag(:url, params[:url], :size => 40, :class => "text_field") %>
-	  
-	  <%= submit_tag("Count Shares", :class => "submit") %>
-	  
-	<% end %>
-	
-<%= yield %>
+		<div class="content">
+			<%= form_tag("/shares", :method => "post", :class => "shares_form") do %>
+			  <%= select_tag(:type, options_for_select(share_types, params[:type])) %>
+			  <%= text_field_tag(:url, params[:url], :size => 40, :class => "text_field") %>
+			  <%= submit_tag("Count Shares", :class => "submit") %>
+			<% end %>
+			
+			<%= yield %>
+		</div>
+	</div>
 
 </body>
 </html>
