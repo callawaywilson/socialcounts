@@ -2,13 +2,14 @@ class SharesController < ApplicationController
 
 	#GET count
 	def count
-		if params[:url].blank?
+		url = clean_url params[:url] 
+		if url.blank?
 			@error = {:error => "No URL"}
 			respond_error(@error, params[:callback])
 			return
 		end
 			
-		@shares = count_url(params[:url], params[:type])
+		@shares = count_url(url, params[:type])
 		respond(@shares, params[:callback])
 	end
 
@@ -16,9 +17,7 @@ class SharesController < ApplicationController
 	private 
 	
 	def count_url(url, type)
-		type.blank? ?
-			Share.count_all(params[:url]) : 
-			[Share.count_one(params[:url], params[:type])]	
+		type.blank? ? Share.count_all(url) : [Share.count_one(url, type)]	
 	end
 
 end

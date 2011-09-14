@@ -7,6 +7,7 @@ class FacebookShare < Share
 	end
 
 	def count
+		puts "Checking #{@url}"
 		resp = JSON.parse(fetch(@count_url.sub("[url]", escape_url)))
 		return make_count resp["shares"]
 	end

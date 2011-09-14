@@ -14,14 +14,18 @@ class ApplicationController < ActionController::Base
   end
   
   def respond_error(val, callback)
-			respond_to do |format|
-				format.html 
-				format.json {
-					render :json => callback ? jsonp(callback, JSON.generate(val)) : val,
-					:status => :error
-				}
-				format.xml { render :xml => {:error => val}, :status => :error}
-			end
+		respond_to do |format|
+			format.html 
+			format.json {
+				render :json => callback ? jsonp(callback, JSON.generate(val)) : val,
+				:status => :error
+			}
+			format.xml { render :xml => {:error => val}, :status => :error}
+		end
+  end
+  
+  def clean_url(url)
+  	return url.starts_with?("http") ? url : "http://#{url}" 
   end
   
   def jsonp(callback, data)

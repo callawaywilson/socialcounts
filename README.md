@@ -24,7 +24,7 @@ Will return a web page for no extention or html, json data, or xml data.
 
 Parameters:
 
-* url: The url to fetch counts for from the services.  The url is not standardized or transformed in any way, so a 'www.' prefix may change the results.
+* url: The url to fetch counts for from the services.  The url is not standardized or transformed in any way (except prefixing with http:// when omitted), so a 'www.' prefix may change the results.
 * callback:  An optional jsonp callback to wrap the result in.  Won't work for html or xml types.
 * type: An optional type of service to get the counts for.  If specified, only the counts for the particular service will be returned
 
