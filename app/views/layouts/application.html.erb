@@ -12,9 +12,9 @@
 	  <%= select_tag(:type, options_for_select(share_types, params[:type])) %>
 	  
 	  <%= label_tag(:url, "URL:") %>
-	  <%= text_field_tag(:url, params[:url], :size => 40) %>
+	  <%= text_field_tag(:url, params[:url], :size => 40, :class => "text_field") %>
 	  
-	  <%= submit_tag("Count Shares") %>
+	  <%= submit_tag("Count Shares", :class => "submit") %>
 	  
 	<% end %>
 	
