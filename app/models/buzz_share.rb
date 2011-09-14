@@ -7,8 +7,7 @@ class BuzzShare < Share
 	end
 
 	def count
-		resp = fetch(@count_url.sub("[url]", escape_url))
-		resp = JSON.parse(strip_jsonp(resp))
+		resp = JSON.parse(strip_jsonp(fetch(@count_url.sub("[url]", escape_url))))
 		return make_count resp[@url]
 	end
 

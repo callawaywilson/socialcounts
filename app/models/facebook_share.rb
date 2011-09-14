@@ -7,8 +7,7 @@ class FacebookShare < Share
 	end
 
 	def count
-		resp = fetch(@count_url.sub("[url]", escape_url))
-		resp = JSON.parse(resp)
+		resp = JSON.parse(fetch(@count_url.sub("[url]", escape_url)))
 		return make_count resp["shares"]
 	end
 	
