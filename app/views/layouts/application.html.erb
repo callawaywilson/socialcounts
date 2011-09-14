@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Counter</title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<%= form_tag("/shares", :method => "post") do %>
+	
+	  <%= label_tag(:type, "Services:") %>
+	  <%= select_tag(:type, options_for_select(share_types, params[:type])) %>
+	  
+	  <%= label_tag(:url, "URL:") %>
+	  <%= text_field_tag(:url, params[:url], :size => 40) %>
+	  
+	  <%= submit_tag("Count Shares") %>
+	  
+	<% end %>
+	
+<%= yield %>
+
+</body>
+</html>

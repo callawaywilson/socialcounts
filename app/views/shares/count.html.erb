@@ -1,0 +1,22 @@
+<% unless @error.blank? %>
+	<%= @error[:error] %>
+<% end %> 
+
+<ul class="share_list">
+	<% @shares.each do |share| %>
+		<li>
+			<div class="share_name">
+				<%= share[:name] %>
+			</div>
+			<% unless share[:count].blank? %>
+				<div class="share_count">
+					<%= share[:count] %>
+				</div>
+			<% end %>
+			<% unless share[:error].blank? %>
+				<div class="share_error">
+					<%= share[:error] %>
+				</div>
+			<% end %>
+	<% end unless @shares.nil?%>
+</ul>
