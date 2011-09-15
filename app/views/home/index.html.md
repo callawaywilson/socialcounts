@@ -1,0 +1,1 @@
+Share Counter is a quick web utility and REST web service to count the number of times a link has been "socially shared" on the internet.  Put in a URL above to see how many times it's been shared.
