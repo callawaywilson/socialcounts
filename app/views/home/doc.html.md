@@ -1,6 +1,6 @@
-## Usage
+## Social Counts Usage
 
-### Share Counts
+### Share Counts:
 
 You can get the number of times a link has been shared on various services by GETing (or POSTing) to the count action:
 
